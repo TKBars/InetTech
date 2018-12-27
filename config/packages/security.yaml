@@ -1,7 +1,7 @@
 security:
     encoders:
         App\Entity\User:
-            algorithm: bcrypt  #argon2i
+            algorithm: argon2i
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
@@ -15,14 +15,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            logout:
-                path:   /logout
-                target: /
-
             anonymous: true
-            guard:
-                authenticators:
-                    - App\Security\LoginFormAuthenticator
 
             # activate different ways to authenticate
 
@@ -37,4 +30,3 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-    
