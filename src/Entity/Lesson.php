@@ -19,38 +19,38 @@ class Lesson
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $user;
+    private $teacher;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
-    private $lesson;
+    private $subject_id;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUser(): ?string
+    public function getTeacher(): ?string
     {
-        return $this->user;
+        return $this->teacher;
     }
 
-    public function setUser(string $user): self
+    public function setTeacher(string $teacher): self
     {
-        $this->user = $user;
+        $this->teacher = $teacher;
 
         return $this;
     }
 
-    public function getLesson(): ?string
+    public function getSubjectId(): ?int
     {
-        return $this->lesson;
+        return $this->subject_id;
     }
 
-    public function setLesson(string $lesson): self
+    public function setSubjectId(int $subject): self
     {
-        $this->lesson = $lesson;
+        $this->subject_id = $subject;
 
         return $this;
     }

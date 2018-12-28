@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Marks!{% endblock %}
+
+{% block body %}
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+    </style>
+
+    <table>
+        <tr>
+            <th>Stident name</th>
+            <th>Teacher name</th>
+            <th>Subject id</th>
+            <th>Mark</th>
+
+            <th>Delete</th>>
+        </tr>
+
+        {% for mark in marks %}
+            <tr>
+                <td>{{ mark.studentName }}</td>
+                <td>{{ mark.teacherName }}</td>
+                <td>{{ mark.subjectId}}</td>
+                <td>{{ mark.mark }}</td>
+
+                <td><a href="http://localhost:8000/mark/delete/{{ mark.id }}">Delete</a></td>
+                {#<button class="delete" data-target="http://localhost:8000/mark/delete/{{ mark.id }}" data-method="GET" data-disabled="true">Delete</button>#}
+            </tr>
+            {#<tr>#}
+                {#<td>{{ mark.teacherName }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<td>{{ mark.subjectId}}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<td>{{ mark.mark }}</td>#}
+            {#</tr>#}
+        {% endfor %}
+
+    </table>
+
+{% endblock %}
